@@ -24,6 +24,9 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+package 'libssl0.9.8' do
+end
+
 remote_file File.join(Chef::Config[:file_cache_path], node['couchbase']['server']['package_file']) do
   source node['couchbase']['server']['package_full_url']
   action :create_if_missing
@@ -79,10 +82,10 @@ end
 
 couchbase_settings "web" do
   settings({
-    "username" => node['couchbase']['server']['username'],
-    "password" => node['couchbase']['server']['password'],
-    "port" => 8091,
-  })
+               "username" => node['couchbase']['server']['username'],
+               "password" => node['couchbase']['server']['password'],
+               "port"     => 8091,
+           })
 
   username node['couchbase']['server']['username']
   password node['couchbase']['server']['password']
