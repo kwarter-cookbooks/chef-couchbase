@@ -3,10 +3,14 @@ module Couchbase
     private
 
     def uri_from_path(path)
+      #Chef::Log.info(@new_resource.username)
+      #Chef::Log.info(@new_resource.password)
       URI.parse "http://#{@new_resource.username}:#{@new_resource.password}@localhost:8091#{path}"
     end
 
     def post(path, params)
+      #Chef::Log.info(uri_from_path(path))
+      #Chef::Log.info(params)
       response = Net::HTTP.post_form(uri_from_path(path), params)
       Chef::Log.error response.body unless response.kind_of? Net::HTTPSuccess
       response.value

@@ -1,4 +1,4 @@
-codename = %w(oneiric lucid).include?(node['lsb']['codename']) ? node['lsb']['codename'] : "oneiric"
+codename = %w(oneiric lucid).include?(node['lsb']['codename']) ? node['lsb']['codename'] : "lucid"
 
 default['couchbase']['libcouchbase']['version'] = "1.0.4-1"
 default['couchbase']['libvbucket']['version'] = "1.8.0.4-1"

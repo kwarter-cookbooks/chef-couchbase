@@ -2,7 +2,7 @@ include Couchbase::Client
 include Couchbase::ClusterData
 
 action :create_if_missing do
-  unless @current_resource.exists
+  if !@current_resource.exists || @current_resource.memory_quota_mb != @new_resource.memory_quota_mb
     post "/pools/#{@new_resource.cluster}", "memoryQuota" => @new_resource.memory_quota_mb
     @new_resource.updated_by_last_action true
     Chef::Log.info "#{@new_resource} created"
