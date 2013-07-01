@@ -14,7 +14,7 @@ find ${BackupPath}/${AppName} -mtime 0 |xargs rm -rf;
 
 
 
-${AppBinPath}/cbbackup http://<%= node['ipaddress'] %>:8091 ${BackupPath}/${AppName} -u <%= node['couchbase']['server']['username'] %> -p <%= node['couchbase']['server']['password'] %>
+${AppBinPath}/cbbackup http://<%= node['ipaddress'] %>:8091 ${BackupPath}/${AppName} -u <%= node['couchbase']['server']['username'] %> -p <%= node['couchbase']['server']['password'] %> --single-node
 
 tar -czvf ${BackupPath}/`hostname`_${DateStamp}.tar -C ${BackupPath} ${AppName}; \
 s3cmd put ${BackupPath}/`hostname`_${DateStamp}.tar s3://backups.kwarter.com/`hostname |cut -d"." -f2`/;
