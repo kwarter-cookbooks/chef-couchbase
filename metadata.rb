@@ -4,7 +4,7 @@ maintainer_email "devteam@roomvaluesteam.com"
 license "MIT"
 description "Installs/Configures Couchbase"
 long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
-version "2.0.0"
+version "2.0.1"
 
 supports "debian"
 supports "ubuntu"
