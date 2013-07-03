@@ -14,3 +14,6 @@ default['couchbase']['server']['username'] = "Administrator"
 default['couchbase']['server']['password'] = ""
 
 default['couchbase']['server']['memory_quota_mb'] = Couchbase::MaxMemoryQuotaCalculator.from_node(node).in_megabytes
+
+default['couchbase']['server']['memory_quota_mb'] = Couchbase::MaxMemoryQuotaCalculator.from_node(node).in_megabytes
+default['couchbase']['server']['couchbase_backup']['backup_path'] = "/var/backups"
